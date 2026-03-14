@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom'
 import { supabase } from '../../lib/supabase'
 import { useUserStore } from '../../store/userStore'
 
-const API_BASE = import.meta.env.VITE_API_URL || 'http://localhost:3001'
+const API_BASE = import.meta.env.VITE_API_URL || ''
 
 const bodyTypes = ['Slim', 'Athletic', 'Average', 'Curvy', 'Plus Size']
 const genders = ['Male', 'Female']

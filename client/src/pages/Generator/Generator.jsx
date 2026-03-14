@@ -5,7 +5,7 @@ import ProductCard from '../../components/ProductCard/ProductCard'
 import { useUserStore } from '../../store/userStore'
 import { supabase } from '../../lib/supabase'
 
-const API_BASE = import.meta.env.VITE_API_URL || 'http://localhost:3001'
+const API_BASE = import.meta.env.VITE_API_URL || ''
 
 const mockProducts = [
   { id: 1, name: 'Oversized Cotton Hoodie', brand: 'Nike', price: 89.99, image: null },

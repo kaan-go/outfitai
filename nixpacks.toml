@@ -1,0 +1,11 @@
+[phases.setup]
+nixPkgs = ["nodejs_20", "npm-9_x"]
+
+[phases.install]
+cmds = ["npm run install:client", "npm run install:server"]
+
+[phases.build]
+cmds = ["npm run build:client"]
+
+[start]
+cmd = "cd server && node server.js"
