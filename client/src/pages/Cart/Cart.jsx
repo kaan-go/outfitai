@@ -96,7 +96,7 @@ export default function Cart() {
               <div className="flex-1 min-w-0">
                 {item.brand && <p className="text-xs text-primary font-semibold uppercase">{item.brand}</p>}
                 <h3 className="text-sm font-medium text-dark truncate">{item.name}</h3>
-                {item.price > 0 && <p className="text-lg font-bold text-dark mt-1">${Number(item.price).toFixed(2)}</p>}
+                {item.price > 0 && <p className="text-lg font-bold text-dark mt-1">{Number(item.price).toFixed(2)} TL</p>}
                 {item.link && (
                   <a href={item.link} target="_blank" rel="noopener noreferrer" className="text-xs text-primary hover:underline">
                     View Product
@@ -137,7 +137,7 @@ export default function Cart() {
           </div>
           <div className="flex items-center justify-between mb-4">
             <span className="text-gray font-medium">Total</span>
-            <span className="text-2xl font-bold text-dark">${total.toFixed(2)}</span>
+            <span className="text-2xl font-bold text-dark">{total.toFixed(2)} TL</span>
           </div>
           <p className="text-xs text-gray-light text-center">
             Prices are estimated. Click "View Product" on each item to purchase from the brand's website.

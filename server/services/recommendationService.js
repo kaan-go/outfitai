@@ -11,15 +11,18 @@ async function getRecommendations(imageUrl) {
   form.append('inputImage', imageUrl)
   form.append(
     'prompt',
-    'Bu görseldeki kıyafetleri analiz et. Her bir kıyafet parçası için (üst, alt, ayakkabı, aksesuar vb.) gerçek markaların benzer ürünlerini öner. Her ürün için şu bilgileri JSON formatında ver:\n' +
+    'Bu görseldeki kıyafetleri analiz et. Her bir kıyafet parçası için (üst, alt, ayakkabı, aksesuar vb.) Türkiye\'de satılan markaların benzer ürünlerini öner. ' +
+    'Sadece Türkiye\'de bulunan markalar ve Türk e-ticaret siteleri olsun (Trendyol, Hepsiburada, LC Waikiki, DeFacto, Koton, Mavi, Boyner, Zara TR, H&M TR, Nike TR, Adidas TR vb.). ' +
+    'Fiyatlar TL (Türk Lirası) cinsinden olsun. Linkleri Türkiye sitelerinden ver (trendyol.com, hepsiburada.com, lcwaikiki.com vb.). ' +
+    'Türkçe yanıt ver. Her ürün için şu bilgileri JSON formatında ver:\n' +
     '[\n' +
     '  {\n' +
-    '    "name": "Ürün adı",\n' +
+    '    "name": "Ürün adı (Türkçe)",\n' +
     '    "brand": "Marka adı",\n' +
     '    "category": "Kategori (üst/alt/ayakkabı/aksesuar)",\n' +
-    '    "price": tahmini fiyat (sayı, USD),\n' +
-    '    "link": "marka web sitesindeki ürün linki veya arama linki",\n' +
-    '    "description": "Kısa açıklama"\n' +
+    '    "price": tahmini fiyat (sayı, TL cinsinden),\n' +
+    '    "link": "Türk e-ticaret sitesindeki ürün arama linki",\n' +
+    '    "description": "Kısa Türkçe açıklama"\n' +
     '  }\n' +
     ']\n' +
     'Sadece JSON array döndür, başka bir şey yazma. En az 4, en fazla 8 ürün öner.'

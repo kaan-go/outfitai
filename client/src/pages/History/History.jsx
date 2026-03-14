@@ -273,7 +273,7 @@ export default function History() {
                             )}
                             <div className="flex items-center justify-between mt-2">
                               {product.price > 0 && (
-                                <span className="text-sm font-bold text-dark">${product.price}</span>
+                                <span className="text-sm font-bold text-dark">{product.price} TL</span>
                               )}
                               <div className="flex gap-2 ml-auto">
                                 {product.link && (
