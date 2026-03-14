@@ -4,6 +4,7 @@ const cors = require('cors')
 const path = require('path')
 const generateRoutes = require('./routes/generate')
 const avatarRoutes = require('./routes/avatar')
+const recommendationRoutes = require('./routes/recommendation')
 
 const app = express()
 const PORT = process.env.PORT || 3001
@@ -27,6 +28,7 @@ app.use(express.json())
 
 app.use('/api', generateRoutes)
 app.use('/api', avatarRoutes)
+app.use('/api', recommendationRoutes)
 
 app.get('/health', (req, res) => res.json({ status: 'ok' }))
 

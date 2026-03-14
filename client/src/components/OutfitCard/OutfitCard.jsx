@@ -1,4 +1,4 @@
-export default function OutfitCard({ imageUrl, prompt, liked, onLike, onDislike, onRegenerate }) {
+export default function OutfitCard({ imageUrl, prompt, liked, onLike, onDislike, onRegenerate, onGetRecommendations, loadingRec }) {
   return (
     <div className="bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100 transition-transform hover:scale-[1.02]">
       <div className="aspect-[3/4] bg-gray-100 overflow-hidden">
@@ -22,7 +22,7 @@ export default function OutfitCard({ imageUrl, prompt, liked, onLike, onDislike,
                 liked === true ? 'bg-green-100 text-green-700' : 'bg-gray-50 text-gray hover:bg-green-50'
               }`}
             >
-              👍 Like
+              Like
             </button>
             <button
               onClick={onDislike}
@@ -30,15 +30,36 @@ export default function OutfitCard({ imageUrl, prompt, liked, onLike, onDislike,
                 liked === false ? 'bg-red-100 text-red-700' : 'bg-gray-50 text-gray hover:bg-red-50'
               }`}
             >
-              👎 Dislike
+              Dislike
             </button>
             <button
               onClick={onRegenerate}
               className="flex-1 py-2 rounded-lg text-sm font-medium bg-gray-50 text-gray hover:bg-primary/10 hover:text-primary transition-colors"
             >
-              🔄 Retry
+              Retry
             </button>
           </div>
+          {liked === true && onGetRecommendations && (
+            <button
+              onClick={onGetRecommendations}
+              disabled={loadingRec}
+              className="w-full mt-2 py-2.5 rounded-lg text-sm font-semibold bg-amber-500 text-white hover:bg-amber-600 transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+            >
+              {loadingRec ? (
+                <>
+                  <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+                  Analyzing...
+                </>
+              ) : (
+                <>
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
+                  </svg>
+                  Find Similar Products
+                </>
+              )}
+            </button>
+          )}
         </div>
       )}
     </div>
