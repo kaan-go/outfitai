@@ -1,4 +1,5 @@
-import { Link } from 'react-router-dom'
+import { Link, Navigate } from 'react-router-dom'
+import { useUserStore } from '../../store/userStore'
 
 const exampleOutfits = [
   {
@@ -63,6 +64,10 @@ const features = [
 ]
 
 export default function LandingPage() {
+  const { user } = useUserStore()
+
+  if (user) return <Navigate to="/generator" replace />
+
   return (
     <div className="min-h-screen">
       {/* Landing Navbar */}
